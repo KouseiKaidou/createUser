@@ -46,10 +46,10 @@
             'Accept': 'application/json'
         };
         console.log(api); // デバッグ表示
-        fetch(api, {method, headers, body, mode: "no-cors"}).then((res)=> res.json()).then(console.log).catch(console.error);
-            .then(res => res.json())
-            .then(data => reflect(data))
-            .catch(error => errorReflect(error));
+        fetch(api, {method, headers, body, mode: "no-cors"})
+            .then((res)=> res.json())
+            .then(console.log)
+            .catch(console.error);
     }
     // 応答結果を表示
     function reflect(data) {
