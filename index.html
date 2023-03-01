@@ -5,27 +5,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>採番</title>
+    <title>ユーザ作成</title>
 </head>
 
 <body>
     <label for="userIdLabel">ユーザID</label>
-    <input type="text" name="userId" id="userId" placeholder="001941">
-    <button id="btn">採番</button>
+    <input type="text" name="userId" id="userId">
+    <label for="userNameLabel">ユーザ名</label>
+    <input type="text" name="userName" id="userName">
+    <label for="departmentLabel">部署</label>
+    <input type="text" name="department" id="department">
+    <label for="mailLabel">メールアドレス</label>
+    <input type="text" name="mail" id="mail">
+    <button id="btn">登録</button>
 </body>
 <script>
     // register-api
-    const api = 'https://b8gnm6ogsj.execute-api.ap-northeast-1.amazonaws.com/dev/register';
+    const api = 'https://b8gnm6ogsj.execute-api.ap-northeast-1.amazonaws.com/dev/';
     var btn = document.getElementById('btn');
 
     btn.addEventListener('click', function () {
-        regist(document.getElementById('userId').value);
+        regist(
+            document.getElementById('userId').value,
+            document.getElementById('userName').value,
+            document.getElementById('department').value,
+            document.getElementById('mail').value
+        );
     })
 
     // 結果を取得
-    function regist(query) {
-        console.log(`${api}?input_userid=${query}`, {mode: "no-cors"}); // デバッグ表示
-        fetch(`${api}?input_userid=${query}`)
+    function regist(userId, userName, department, mail) {
+        const obj = {userId, userName, department, mail};
+        const method = "POST";
+        const body = Object.keys(obj).reduce((o,key)=>(o.set(key, obj[key]), o), new FormData());
+        const headers = {
+            'Accept': 'application/json'
+        };
+        console.log(api); // デバッグ表示
+        fetch(api, {method, headers, body, mode: "no-cors"}).then((res)=> res.json()).then(console.log).catch(console.error);
             .then(res => res.json())
             .then(data => reflect(data))
             .catch(error => errorReflect(error));
@@ -36,7 +53,7 @@
         const s = "";
         if (data.statusCode === 200) {
             s = `
-          <h3>${data.body.input_userid}:${data.body.output_number}</h3>
+          <h3>登録が完了しました。</h3>
         `;
         } else {
             s = `
