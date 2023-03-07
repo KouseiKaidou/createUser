@@ -38,8 +38,8 @@
     })
 
     // 結果を取得
-    function regist(userId, userName, department, mail) {
-        const obj = {userId, userName, department, mail};
+    function regist(userid, name, department, mailAddress) {
+        const obj = {userid, name, department, mailAddress};
         const method = "POST";
         const body = Object.keys(obj).reduce((o,key)=>(o.set(key, obj[key]), o), new FormData());
         const headers = {
