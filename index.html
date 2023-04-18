@@ -44,10 +44,9 @@
 
     // 結果を取得
     function regist(userid, name, department, mailAddress) {
-        //const obj = {userid, name, department, mailAddress};
-        const body = {userid, name, department, mailAddress};
+        const obj = {userid, name, department, mailAddress};
         const method = "POST";
-        //const body = Object.keys(obj).reduce((o,key)=>(o.set(key, obj[key]), o), new FormData());
+        const body = Object.keys(obj).reduce((o,key)=>(o.set(key, obj[key]), o), new FormData());
         const headers = {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
