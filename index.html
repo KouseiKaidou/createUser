@@ -22,8 +22,9 @@
         .header {
             height: 100px;
             font-size: 30px;
-            background-color: #FF0000;
+            background-color: white;
             box-sizing: border-box;
+            text-transform: capitalize;
         }
         
         .header h1 {
@@ -31,8 +32,8 @@
         }
 
         .footer {
-            height: 100px;
-            background-color: #FF0000;
+            height: 50px;
+            background-color: #E42149;
             box-sizing: border-box;
         }
 
@@ -51,17 +52,18 @@
             width: 100%;
             height: 100%;
             background-color: white;
-            opacity: 0.5;
+            opacity: 0.7;
         }
         
         .sidebar {
             position: relative;
             z-index: 3;
             text-align: center;
-            width: 150px;
-            background-color: black;
+            width: 200px;
+            background-color: #808080;
             box-sizing: border-box;
             border: 1px solid white;
+            border-radius: 10px;
         }
 
         .content {
@@ -93,12 +95,12 @@
             width: 15em;
             position: relative;
             z-index: 3;
+            border-radius: 30px;
         }
         
         h1 {
           color: #E42149;
-          text-transform: uppercase;
-          font-size: 18vh;
+          font-size: 100px;
           margin: 0;
           position: relative;
           line-height: 1;
@@ -110,7 +112,7 @@
                left: 0;
                top: 0;
                color: #FFF146;
-               transform: translate(2.25%, 0);
+               transform: translate(1.0%, 0);
                mix-blend-mode: multiply;
           }
           
@@ -120,7 +122,7 @@
                left: 0;
                top: 0;
                color: #0091E5;
-               transform: translate(-2.25%, 0);
+               transform: translate(-1.0%, 0);
                mix-blend-mode: multiply;
           }
         }
@@ -135,21 +137,27 @@
         }
         
         /*選択画面の枠づけ*/
+        /*
         .side1 {
-            border: 5px double #FF0000;
+            border: 5px double #E42149;
+            border-radius: 10px;
+            transition: all 0.5s ease;
+        }
+        .side2 {
+            border: 5px double #E42149;
+            border-radius: 10px;
+            transition: all 0.5s ease;
+        }
+        */
+        .side3 {
+            border: 5px double #E42149;
+            border-radius: 10px;
             transition: all 0.5s ease;
         }
         /*
-        .side2 {
-            border: 5px double #FF0000;
-            transition: all 0.5s ease;
-        }
-        .side3 {
-            border: 5px double #FF0000;
-            transition: all 0.5s ease;
-        }
         .side4 {
-            border: 5px double #FF0000;
+            border: 5px double #E42149;
+            border-radius: 10px;
             transition: all 0.5s ease;
         }
         */
@@ -157,18 +165,25 @@
         
         
         .side1:hover {
-            background-color: #FF0000;
+            background-color: #E42149;
+            border-radius: 10px;
         }
         .side2:hover {
-            background-color: #FF0000;
+            background-color: #E42149;
+            border-radius: 10px;
         }
         .side3:hover {
-            background-color: #FF0000;
+            background-color: #E42149;
+            border-radius: 10px;
         }
         .side4:hover {
-            background-color: #FF0000;
+            background-color: #E42149;
+            border-radius: 10px;
         }
         
+        .formTitle {
+            font-size:20px;
+        }
         
     </style>
 </head>
@@ -176,13 +191,13 @@
 <body>
     <div class="app">
         <div class="header">
-            <h1 data-heading="AWSコミュニティ">AWSコミュニティ</h1>
+            <h1 data-heading="Seat  Decision  System">Seat  Decision  System</h1>
         </div>
         <div class="main">
             <div class="sidebar">
                 <div class="side1"><a href="https://main.d3715qbrta1wwx.amplifyapp.com/">座席表</a></div>
                 <hr>
-                <div class="side2"><a href="https://test.d3vkykcg3zkvui.amplifyapp.com/">検索画面</a></div>
+                <div class="side2"><a href="https://main.d3vkykcg3zkvui.amplifyapp.com/">検索画面</a></div>
                 <hr>
                 <div class="side3"><a href="https://main.dh2s54ysidjqd.amplifyapp.com/">ユーザ登録画面</a></div>
                 <hr>
@@ -190,16 +205,16 @@
                 <hr>
             </div>
             <div class="content">
-                <label for="userIdLabel">ユーザID</label>
+                <label for="userIdLabel" class="formTitle">ユーザID</label>
                 <input type="text" name="userId" id="userId">
                 <br>
-                <label for="userNameLabel">ユーザ名</label>
+                <label for="userNameLabel" class="formTitle">ユーザ名</label>
                 <input type="text" name="userName" id="userName">
                 <br>
-                <label for="departmentLabel">部署</label>
+                <label for="departmentLabel" class="formTitle">部署</label>
                 <input type="text" name="department" id="department">
                 <br>
-                <label for="mailLabel">メールアドレス</label>
+                <label for="mailLabel" class="formTitle">メールアドレス</label>
                 <input type="text" name="mail" id="mail">
                 <br>
                 <button id="btn">登録</button>
