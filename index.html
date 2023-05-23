@@ -250,13 +250,13 @@
         console.log(api); // デバッグ表示
         fetch(api, { method, headers, body, mode: "cors" })
             .then((res) => res.json())
-            .then(console.log)
-            .catch(console.error);
+            .then((data) => reflect(data))
+            .catch((error) => errorReflect(error));
     }
     // 応答結果を表示
     function reflect(data) {
         console.log(data); // デバッグ表示
-        const s = "";
+        let s = "";
         if (data.statusCode === 200) {
             s = `
           <h3>登録が完了しました。</h3>
